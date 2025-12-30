@@ -1,0 +1,3 @@
+nltk
+pdfplumber
+python-docx
