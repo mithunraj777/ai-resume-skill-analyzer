@@ -53,10 +53,6 @@ The application extracts technical skills from resumes, compares them with role-
 
 ---
 
-## Example Output
-
----
-
 ## How It Works
 
 1. Upload your resume (PDF/DOCX)
@@ -114,4 +110,5 @@ The application extracts technical skills from resumes, compares them with role-
 **Mithunraj T T**
 
 GitHub  
+
 https://github.com/mithunraj777
