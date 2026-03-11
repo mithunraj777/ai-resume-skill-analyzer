@@ -5,10 +5,6 @@ import re
 
 app = Flask(__name__)
 
-# ------------------------------------------------
-# SKILL DATABASE
-# ------------------------------------------------
-
 SKILLS_DB = {
 
 # Programming
@@ -50,9 +46,6 @@ SKILLS_DB = {
 "tableau","powerbi","excel","statistics"
 }
 
-# ------------------------------------------------
-# ROLE SKILLS
-# ------------------------------------------------
 
 ROLE_SKILLS = {
 
@@ -136,9 +129,6 @@ ROLE_SKILLS = {
 
 }
 
-# ------------------------------------------------
-# TEXT NORMALIZATION
-# ------------------------------------------------
 
 def preprocess(text):
 
@@ -160,9 +150,6 @@ def preprocess(text):
 
     return text
 
-# ------------------------------------------------
-# EXTRACT PDF
-# ------------------------------------------------
 
 def extract_pdf(path):
 
@@ -177,9 +164,6 @@ def extract_pdf(path):
 
     return text
 
-# ------------------------------------------------
-# EXTRACT DOCX
-# ------------------------------------------------
 
 def extract_docx(path):
 
@@ -187,9 +171,6 @@ def extract_docx(path):
 
     return "\n".join(p.text for p in doc.paragraphs)
 
-# ------------------------------------------------
-# SKILL EXTRACTION
-# ------------------------------------------------
 
 def extract_skills(text):
 
@@ -205,9 +186,6 @@ def extract_skills(text):
 
     return found
 
-# ------------------------------------------------
-# SCORE CALCULATION
-# ------------------------------------------------
 
 def compute_score(resume_skills, role_skills):
 
@@ -240,9 +218,7 @@ def compute_score(resume_skills, role_skills):
     score = (0.3 * fund_score + 0.7 * tech_score) * 100
 
     return matched, missing, round(score,2)
-# ------------------------------------------------
-# ROUTES
-# ------------------------------------------------
+
 
 @app.route("/")
 def home():
@@ -279,9 +255,5 @@ def analyze():
 
     })
 
-# ------------------------------------------------
-# RUN SERVER
-# ------------------------------------------------
-
-if __name__=="__main__":
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000)
